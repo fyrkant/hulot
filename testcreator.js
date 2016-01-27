@@ -1,14 +1,10 @@
 'use strict';
+const fs = require('fs');
 
-module.exports = (input) => {
-    const fs = require('fs');
-    const exec = require('child_process').exec;
-
-    const filePath = process.argv[process.argv.length - 1];
-    const fileName = filePath.split('/').pop();
+module.exports = (fileName) => {
     const fileNameArray = fileName.split('.');
     const testFilePath = `spec/components/${fileNameArray[0]}-spec.${fileNameArray[1]}`;
-    const componentName = fileNameArray[0]
+    const testComponentName = fileNameArray[0]
         .split('-')
         .map(x => x.charAt(0).toUpperCase() + x.slice(1))
         .join('');
@@ -20,14 +16,14 @@ module.exports = (input) => {
 
     expect.extend(expectJSX);
 
-    import ${componentName} from '../../${filePath}';
+    import ${testComponentName} from '../../${filePath}';
 
-    describe('${componentName}', () => {
+    describe('${testComponentName}', () => {
 
         it('WRITE DESCRIPTION HERE', () => {
             const renderer = TestUtils.createRenderer();
 
-            renderer.render(<${componentName} ADD PROPS HERE />);
+            renderer.render(<${testComponentName} ADD PROPS HERE />);
 
             const actual = renderer.getRenderOutput();
             const expected = <p>This is what you want</p>;

@@ -1,13 +1,9 @@
 #! /usr/bin/env node
-
-const flag = process.argv[process.argv.length - 2];
+const parserFunc = require('./parser-func');
 const flags = {"-c": "component", "-t": "test" };
 
-const flagged = flag === '-c' || flag === '-t' ? flags[flag] : false;
+const flag = process.argv[process.argv.length - 2];
+const fileName = process.argv[process.argv.length - 1];
+const option = flag === '-c' || flag === '-t' ? flags[flag] : false;
 
-flagged ? console.log("Only create " + flagged) : console.log("Create both component and test");
-console.log(process.argv[process.argv.length - 1]);
-
-
-
-console.log("console.log output");
+parserFunc(fileName, option);
