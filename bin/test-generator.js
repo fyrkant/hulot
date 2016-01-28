@@ -1,15 +1,14 @@
-const fs = require('fs');
-
 module.exports = (fileName) => {
     const fileNameArray = fileName.split('.');
     const componentFilePath = `../../src/components/${fileNameArray[0]}.${(fileNameArray[1] || 'js')}`;
-    const testFilePath = `spec/components/${fileNameArray[0]}-spec.${(fileNameArray[1] || 'js')}`;
+    const filePath = `spec/components/${fileNameArray[0]}-spec.${(fileNameArray[1] || 'js')}`;
     const testComponentName = fileNameArray[0]
         .split('-')
         .map(x => x.charAt(0).toUpperCase() + x.slice(1))
         .join('');
 
-    const emptyFile = `import React from 'react';
+    const template = `import React from 'react';
+
 import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 import expectJSX from 'expect-jsx';
@@ -32,11 +31,6 @@ describe('${testComponentName}', () => {
     });
 });`;
 
-    // console.log(emptyFile);
+    return {filePath, template, type: 'Test'};
 
-    fs.writeFile(testFilePath, emptyFile, {encoding: 'utf8', flag: 'wx'},
-        error => error ?
-            console.log('Oh crap! ' + error.message) :
-            console.log('Test file succesfully created!')
-        );
 };

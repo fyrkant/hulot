@@ -4,10 +4,11 @@
   "description": "an easy way to generate react components and tests",
   "main": "index.js",
   "bin": {
-    "compotest": "bin/input-parser.js"
+    "compotest": "bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha './tests/**/*-spec.js'",
+    "test:watch": "mocha './tests/**/*-spec.js' -w"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "homepage": "https://github.com/mw222rs/compotest#readme",
   "devDependencies": {
     "expect": "^1.13.4",
+    "lodash": "^4.0.1",
     "mocha": "^2.4.2"
   }
 }

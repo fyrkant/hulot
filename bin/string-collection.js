@@ -1,10 +1,16 @@
-# compotest
-A simple React Component and Test generator
+const helpText = `
+COMPOTEST - Get testing or get out!
 
-## Usage:
-* `$ compotest <cool-component>`  
+Usage:
+ $ compotest <cool-component>
     => Generates a component called CoolComponent and a matching test file.
-* `$ compotest -c <cool-component>`  
+ $ compotest -c <cool-component>
     => Generates component only, no test. (Why aren't you testing?!)
-* `$ compotest -t <cool-component>`  
+ $ compotest -t <cool-component>
     => Generates test only, no component. (Yep, get testing!)
+
+`;
+
+module.exports = {
+    helpText
+};
