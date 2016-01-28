@@ -4,9 +4,6 @@ const parserFunc = require('../bin/input-parser');
 const helpText = require('../bin/string-collection').helpText;
 
 describe('input parser function', () => {
-    it('is a function', () => {
-        expect(parserFunc).toBeA('function');
-    });
 
     it('returns helptext if passed empty array', () => {
         const actual = parserFunc([]);
