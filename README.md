@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mw222rs/compotest.svg?branch=master)](https://travis-ci.org/mw222rs/compotest)
+
 # compotest
 A simple React Component and Test generator
 
