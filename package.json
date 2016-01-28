@@ -29,7 +29,6 @@
   "homepage": "https://github.com/mw222rs/compotest#readme",
   "devDependencies": {
     "expect": "^1.13.4",
-    "lodash": "^4.0.1",
     "mocha": "^2.4.2"
   }
 }
