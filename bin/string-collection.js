@@ -10,7 +10,18 @@ Usage:
     => Generates test only, no component. (Yep, get testing!)
 
 `;
+const validPropTypes = [
+    'array',
+    'bool',
+    'func',
+    'number',
+    'object',
+    'string',
+    'node',
+    'element'
+];
 
 module.exports = {
-    helpText
+    helpText,
+    validPropTypes
 };

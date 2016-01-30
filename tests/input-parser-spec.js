@@ -75,4 +75,42 @@ describe('input parser function', () => {
 
         expect(actual).toEqual(expected);
     });
+
+    it('it returns required props', () => {
+        const fileName = 'test-component';
+        const actual = parserFunc([fileName, 'myProp:bool:req']);
+        const expected = {
+            fileName,
+            option: false,
+            props: [
+                {
+                    name: 'myProp',
+                    type: 'bool',
+                    isRequired: true
+                }
+            ]
+        };
+
+        expect(actual).toEqual(expected);
+    });
+
+    it('it returns optional props', () => {
+        const fileName = 'test-component';
+        const actual = parserFunc([fileName, 'myProp:bool']);
+        const expected = {
+            fileName,
+            option: false,
+            props: [
+                {
+                    name: 'myProp',
+                    type: 'bool',
+                    isRequired: false
+                }
+            ]
+        };
+
+        expect(actual).toEqual(expected);
+    });
+
+
 });
