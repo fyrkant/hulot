@@ -3,7 +3,7 @@ const expect = require('expect');
 const propFinder = require('../bin/prop-parser.js');
 
 describe('Prop finder function', () => {
-    it('returns an array with prop objects', () => {
+    it('returns a prop objects', () => {
         const actual = propFinder('propname:bool');
         const expected = {
             name: 'propname',

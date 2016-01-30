@@ -112,5 +112,119 @@ describe('input parser function', () => {
         expect(actual).toEqual(expected);
     });
 
+    it('returns more than one prop if more than one entered', () => {
+        const fileName = 'my-testing-component';
+        const actual = parserFunc([
+            fileName,
+            'myRequiredFunc:func:req',
+            'myOptionalBool:bool',
+            'myRequiredNumber:number:req',
+            'myOptionalArray:array']);
+        const expected = {
+            fileName,
+            option: false,
+            props: [
+                {
+                    name: 'myRequiredFunc',
+                    type: 'func',
+                    isRequired: true
+                },
+                {
+                    name: 'myOptionalBool',
+                    type: 'bool',
+                    isRequired: false
+                },
+                {
+                    name: 'myRequiredNumber',
+                    type: 'number',
+                    isRequired: true
+                },
+                {
+                    name: 'myOptionalArray',
+                    type: 'array',
+                    isRequired: false
+                }
+            ]
+        };
+
+        expect(actual).toEqual(expected);
+    });
+    it('returns correct props even if -t flag is set', () => {
+        const fileName = 'my-testing-component';
+        const actual = parserFunc([
+            fileName,
+            '-t',
+            'myRequiredFunc:func:req',
+            'myOptionalBool:bool',
+            'myRequiredNumber:number:req',
+            'myOptionalArray:array']);
+        const expected = {
+            fileName,
+            option: 'test',
+            props: [
+                {
+                    name: 'myRequiredFunc',
+                    type: 'func',
+                    isRequired: true
+                },
+                {
+                    name: 'myOptionalBool',
+                    type: 'bool',
+                    isRequired: false
+                },
+                {
+                    name: 'myRequiredNumber',
+                    type: 'number',
+                    isRequired: true
+                },
+                {
+                    name: 'myOptionalArray',
+                    type: 'array',
+                    isRequired: false
+                }
+            ]
+        };
+
+        expect(actual).toEqual(expected);
+    });
+    it('returns correct props even if -t flag is set', () => {
+        const fileName = 'my-testing-component';
+        const actual = parserFunc([
+            fileName,
+            '-c',
+            'myRequiredFunc:func:req',
+            'myOptionalBool:bool',
+            'myRequiredNumber:number:req',
+            'myOptionalArray:array']);
+        const expected = {
+            fileName,
+            option: 'component',
+            props: [
+                {
+                    name: 'myRequiredFunc',
+                    type: 'func',
+                    isRequired: true
+                },
+                {
+                    name: 'myOptionalBool',
+                    type: 'bool',
+                    isRequired: false
+                },
+                {
+                    name: 'myRequiredNumber',
+                    type: 'number',
+                    isRequired: true
+                },
+                {
+                    name: 'myOptionalArray',
+                    type: 'array',
+                    isRequired: false
+                }
+            ]
+        };
+
+        expect(actual).toEqual(expected);
+    });
+
 
 });
