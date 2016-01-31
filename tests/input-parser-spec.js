@@ -1,29 +1,29 @@
 const expect = require('expect');
 
-const parserFunc = require('../bin/input-parser');
+const inputParser = require('../bin/input-parser');
 const helpText = require('../bin/string-collection').helpText;
 
 describe('input parser function', () => {
 
     it('returns helptext if passed empty array', () => {
-        const actual = parserFunc([]);
+        const actual = inputParser([]);
         const expected = {helpText};
 
         expect(actual).toEqual(expected);
     });
 
     it('returns helptext if passed --help', () => {
-        const actual = parserFunc(['--help']);
+        const actual = inputParser(['--help']);
         const expected = {helpText};
 
         expect(actual).toEqual(expected);
     });
 
     it('--help returns helptext no matter other input', () => {
-        const actual = parserFunc(['--help', 'something-else']);
-        const actual2 = parserFunc(['--help', 'something-else']);
-        const actual3 = parserFunc(['something-else','something-more', '--help']);
-        const actual4 = parserFunc(['something-else','something-more', '--help', 'one-mote-thing', 'blabla-bla']);
+        const actual = inputParser(['--help', 'something-else']);
+        const actual2 = inputParser(['--help', 'something-else']);
+        const actual3 = inputParser(['something-else','something-more', '--help']);
+        const actual4 = inputParser(['something-else','something-more', '--help', 'one-mote-thing', 'blabla-bla']);
         const expected = {helpText};
 
         expect(actual).toEqual(expected);
@@ -34,7 +34,7 @@ describe('input parser function', () => {
 
     it('returns an object with correst fileName property and option: false if no flag is sent', () => {
         const fileName = 'test-compname';
-        const actual = parserFunc([fileName]);
+        const actual = inputParser([fileName]);
         const expected = {
             fileName,
             option: false
@@ -45,7 +45,7 @@ describe('input parser function', () => {
 
     it('sets option to component if -c flag is set', () => {
         const fileName = 'test-compname';
-        const actual = parserFunc([fileName, '-c']);
+        const actual = inputParser([fileName, '-c']);
         const expected = {
             fileName,
             option: 'component'
@@ -56,7 +56,7 @@ describe('input parser function', () => {
 
     it('sets option to test if -t flag is set', () => {
         const fileName = 'test-compname';
-        const actual = parserFunc([fileName, '-t']);
+        const actual = inputParser([fileName, '-t']);
         const expected = {
             fileName,
             option: 'test'
@@ -67,7 +67,7 @@ describe('input parser function', () => {
 
     it('order of file name and flag is not important', () => {
         const fileName = 'test-compname';
-        const actual = parserFunc(['-t', fileName]);
+        const actual = inputParser(['-t', fileName]);
         const expected = {
             fileName,
             option: 'test'
@@ -78,7 +78,7 @@ describe('input parser function', () => {
 
     it('it returns required props', () => {
         const fileName = 'test-component';
-        const actual = parserFunc([fileName, 'myProp:bool:req']);
+        const actual = inputParser([fileName, 'myProp:bool:req']);
         const expected = {
             fileName,
             option: false,
@@ -96,7 +96,7 @@ describe('input parser function', () => {
 
     it('it returns optional props', () => {
         const fileName = 'test-component';
-        const actual = parserFunc([fileName, 'myProp:bool']);
+        const actual = inputParser([fileName, 'myProp:bool']);
         const expected = {
             fileName,
             option: false,
@@ -114,7 +114,7 @@ describe('input parser function', () => {
 
     it('returns more than one prop if more than one entered', () => {
         const fileName = 'my-testing-component';
-        const actual = parserFunc([
+        const actual = inputParser([
             fileName,
             'myRequiredFunc:func:req',
             'myOptionalBool:bool',
@@ -151,7 +151,7 @@ describe('input parser function', () => {
     });
     it('returns correct props even if -t flag is set', () => {
         const fileName = 'my-testing-component';
-        const actual = parserFunc([
+        const actual = inputParser([
             fileName,
             '-t',
             'myRequiredFunc:func:req',
@@ -189,7 +189,7 @@ describe('input parser function', () => {
     });
     it('returns correct props even if -t flag is set', () => {
         const fileName = 'my-testing-component';
-        const actual = parserFunc([
+        const actual = inputParser([
             fileName,
             '-c',
             'myRequiredFunc:func:req',
@@ -224,6 +224,12 @@ describe('input parser function', () => {
         };
 
         expect(actual).toEqual(expected);
+    });
+
+    it('should throw an exception if no filename but props are sent in', () => {
+        expect(inputParser)
+            .withArgs(['myProp:func'])
+            .toThrow(/No valid file name entered/);
     });
 
 
