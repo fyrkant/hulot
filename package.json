@@ -1,6 +1,6 @@
 {
   "name": "compotest",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "an easy way to generate react components and tests",
   "main": "index.js",
   "bin": {
