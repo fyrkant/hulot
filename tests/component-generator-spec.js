@@ -47,4 +47,30 @@ export default class MyTestingComponent extends Component {
 
         expect(actual).toEqual(expected);
     });
+
+    it('should generate props is props object passed in as second argument', () => {
+        const fileName = 'my-testing-component';
+        const props = [{name: 'myTestingFuncProp', type: 'func', isRequired: false}];
+        const actual = componentGenerator(fileName, props);
+        const expected = {
+            filePath: 'src/components/my-testing-component.js',
+            template: `import React, {Component} from 'react';
+
+export default class MyTestingComponent extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Change this to whatever, the sky is the limit!</h1>
+            </div>
+        );
+    }
+}
+MyTestingComponent.propTypes = {
+    myTestingFuncProp: React.PropTypes.func
+};`,
+            type: 'Component'
+        };
+
+        expect(actual).toEqual(expected);
+    });
 });

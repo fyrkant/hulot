@@ -11,12 +11,12 @@ try {
         console.log(input.helpText);
     } else if (input.option) {
         const toSave = input.option === 'component' ?
-            componentGenerator(input.fileName) :
+            componentGenerator(input.fileName, input.props) :
             testGenerator(input.fileName);
 
         fileSaver(toSave);
     } else {
-        fileSaver(componentGenerator(input.fileName));
+        fileSaver(componentGenerator(input.fileName, input.props));
         fileSaver(testGenerator(input.fileName));
     }
 } catch (err) {
