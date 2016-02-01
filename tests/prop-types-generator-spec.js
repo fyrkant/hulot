@@ -2,7 +2,7 @@ const expect = require('expect');
 
 const propTypesGenerator = require('../bin/prop-types-generator.js');
 
-describe('prop validator function', () => {
+describe('prop types generator function', () => {
     it('is a function', () => {
         expect(propTypesGenerator).toBeA('function');
     });

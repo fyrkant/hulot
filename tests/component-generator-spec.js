@@ -4,7 +4,7 @@ const componentGenerator = require('../bin/component-generator');
 
 describe('component generator function', () => {
 
-    it('returns an object with properties including the correct filepath, template and type', () => {
+    it('should return an object with properties including the correct filepath, template and type', () => {
         const fileName = 'my-testing-component.js';
         const actual = componentGenerator(fileName);
         const expected = {
