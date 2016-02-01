@@ -15,8 +15,10 @@ describe('controller', () => {
     afterEach(() => {
         expect.restoreSpies();
     });
-    it('is a function', () => {
-        expect(controller).toBeA('function');
+    it('should log exceptions', () => {
+        const spy = spyOn(console, 'log');
+        controller(['one','two', 'something:not:accepted'], stubFuncs);
+        expect(spy.calls[0].arguments[0]).toMatch(/Oh crap!/);
     });
 
     it('should slice off the two first elements from the process.argv-array and pass the rest to inputParser', () => {
