@@ -1,6 +1,6 @@
 {
   "name": "hulot",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "an easy way to generate react components and tests",
   "main": "index.js",
   "bin": "bin/index.js",
