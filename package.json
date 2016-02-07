@@ -1,11 +1,9 @@
 {
-  "name": "compotest",
+  "name": "hulot",
   "version": "0.0.5",
   "description": "an easy way to generate react components and tests",
   "main": "index.js",
-  "bin": {
-    "compotest": "bin/index.js"
-  },
+  "bin": "bin/index.js",
   "scripts": {
     "test": "istanbul cover _mocha './tests/**/*-spec.js' --report lcovonly -- -R spec './bin/**/*.js' && cat ./coverage/lcov.info | coveralls",
     "test:dev": "mocha './tests/**/*-spec.js'",
@@ -13,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mw222rs/compotest.git"
+    "url": "git+https://github.com/mw222rs/hulot.git"
   },
   "keywords": [
     "react",
@@ -25,9 +23,9 @@
   "author": "Mattias Wikstrom <fyrkant@gmail.com> (http://mattias.rocks)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mw222rs/compotest/issues"
+    "url": "https://github.com/mw222rs/hulot/issues"
   },
-  "homepage": "https://github.com/mw222rs/compotest#readme",
+  "homepage": "https://github.com/mw222rs/hulot#readme",
   "devDependencies": {
     "coveralls": "^2.11.6",
     "expect": "^1.13.4",
