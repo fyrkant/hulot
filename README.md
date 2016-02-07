@@ -7,12 +7,25 @@
 
 ## Usage:
 
-* `$ hulot <cool-component>`
+* `$ hulot <COMPONENT-NAME>`
     => Generates a component called CoolComponent and a matching test file.
-* `$ hulot -c <cool-component>`
+* `$ hulot -c <COMPONENT-NAME>`
     => Generates component only, no test. (Why aren't you testing?!)
-* `$ hulot -t <cool-component>`
+* `$ hulot -t <COMPONENT-NAME>`
     => Generates test only, no component. (Yep, get testing!)
+
+## Adding proptypes:
+
+If you want to add prop validation via Reacts propTypes you can do so *"rails style"*:
+`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>`
+And if you want the prop to be required you just add `:req` at the end:
+`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>:req`
+The supported proptypes are: `array`, `bool`, `func`, `number`, `object`, `string`, `node` and `element`. For more on proptypes, see the [official documentation][1].
+
+## Example:
+If we wanted to create a component (and the matching test file) called `Greeter` that takes a required string name-prop and an optional boolean isVIP-prop we would write it like this:
+`$ hulot greeter name:string:req isVIP:bool`
+
 
 ## Details
 
@@ -33,3 +46,5 @@ It takes the name of the wanted component component using dash-case - so for exa
 ```
 
 The possibility to be able to configure component- and test paths (and maybe even provide your own templates for how you want your components and tests to look) through a dot-file config or in the package.json might be added in the future. It's on my todo list.
+
+[1]: https://facebook.github.io/react/docs/reusable-components.html#prop-validation
