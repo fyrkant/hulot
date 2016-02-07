@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/mw222rs/hulot.svg?branch=master)](https://travis-ci.org/mw222rs/hulot)
 [![Coverage Status](https://coveralls.io/repos/github/mw222rs/hulot/badge.svg?branch=master)](https://coveralls.io/github/mw222rs/hulot?branch=master)
 
-# hulot
+![hulot logo](hulot.png)
 
 `hulot` is a React component and test generator.
 
