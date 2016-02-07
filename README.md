@@ -16,14 +16,16 @@
 
 ## Adding proptypes:
 
-If you want to add prop validation via Reacts propTypes you can do so *"rails style"*:
-`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>`
-And if you want the prop to be required you just add `:req` at the end:
-`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>:req`
-The supported proptypes are: `array`, `bool`, `func`, `number`, `object`, `string`, `node` and `element`. For more on proptypes, see the [official documentation][1].
+If you want to add prop validation via Reacts proptypes you can do so *"rails style"*:  
+`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>`  
+And if you want the prop to be required you just add `:req` at the end:  
+`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>:req`  
+The proptypes supported by hulot are: `array`, `bool`, `func`, `number`, `object`, `string`, `node` and `element`.
+
+For more on proptypes, see the [official documentation][1].
 
 ## Example:
-If we wanted to create a component (and the matching test file) called `Greeter` that takes a required string name-prop and an optional boolean isVIP-prop we would write it like this:
+If we wanted to create a component (and the matching test file) called `Greeter` that takes a **required** `string` name-prop and an **optional** `boolean` isVIP-prop we would write it like this:  
 `$ hulot greeter name:string:req isVIP:bool`
 
 
