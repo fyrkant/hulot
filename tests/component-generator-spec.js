@@ -12,13 +12,13 @@ describe('component generator function', () => {
             template: `import React, {Component} from 'react';
 
 export default class MyTestingComponent extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Change this to whatever, the sky is the limit!</h1>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <h1>Change this to whatever, the sky is the limit!</h1>
+      </div>
+    );
+  }
 }`,
             type: 'Component'
         };
@@ -34,13 +34,13 @@ export default class MyTestingComponent extends Component {
             template: `import React, {Component} from 'react';
 
 export default class MyTestingComponent extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Change this to whatever, the sky is the limit!</h1>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <h1>Change this to whatever, the sky is the limit!</h1>
+      </div>
+    );
+  }
 }`,
             type: 'Component'
         };
@@ -57,13 +57,13 @@ export default class MyTestingComponent extends Component {
             template: `import React, {Component} from 'react';
 
 export default class MyTestingComponent extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Change this to whatever, the sky is the limit!</h1>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <h1>Change this to whatever, the sky is the limit!</h1>
+      </div>
+    );
+  }
 }
 MyTestingComponent.propTypes = {
     myTestingFuncProp: React.PropTypes.func
