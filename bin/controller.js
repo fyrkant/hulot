@@ -1,4 +1,4 @@
-module.exports = (processArgs, f) => {
+module.exports = (processArgs, f, settings) => {
     try {
         const input = f.inputParser(processArgs.slice(2));
 
@@ -6,8 +6,8 @@ module.exports = (processArgs, f) => {
             console.log(input.helpText);
         } else if (input.option) {
             const toSave = input.option === 'component' ?
-                f.componentGenerator(input.fileName, input.props) :
-                f.testGenerator(input.fileName);
+                f.componentGenerator(input.fileName, input.props, settings) :
+                f.testGenerator(input.fileName, settings);
 
             f.fileSaver(toSave);
         } else {

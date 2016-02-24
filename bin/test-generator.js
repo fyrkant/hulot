@@ -1,9 +1,11 @@
 const testTemplate = require('./string-collection').testTemplate;
 
-module.exports = (fileName) => {
+module.exports = (fileName, settings) => {
     const fileNameArray = fileName.split('.');
-    const componentFilePath = `../../src/components/${fileNameArray[0]}`;
-    const filePath = `spec/components/${fileNameArray[0]}-spec.${(fileNameArray[1] || 'js')}`;
+    const componentFolder = settings ? settings.components : 'src/components/';
+    const componentFilePath = `../../${componentFolder}${fileNameArray[0]}`;
+    const testFolder = settings ? settings.tests : 'spec/components/';
+    const filePath = `${testFolder}${fileNameArray[0]}-spec.${(fileNameArray[1] || 'js')}`;
     const testComponentName = fileNameArray[0]
         .split('-')
         .map(x => x.charAt(0).toUpperCase() + x.slice(1))

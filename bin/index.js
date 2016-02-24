@@ -5,8 +5,8 @@ const testGenerator = require('./test-generator');
 const fileSaver = require('./file-saver');
 const controller = require('./controller');
 
-// const conf = require('./package');
+const settings = require(process.env.PWD + '/package')['hulot'];
 
-// console.log(require(process.env.PWD + '/package')['hulot']);
+console.log(settings);
 
-controller(process.argv, {inputParser, componentGenerator, testGenerator, fileSaver});
+controller(process.argv, {inputParser, componentGenerator, testGenerator, fileSaver}, settings);

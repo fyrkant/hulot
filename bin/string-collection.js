@@ -1,5 +1,5 @@
 const helpText = `
-COMPOTEST - Get testing or get out!
+HULOT - Get testing or get out!
 
 Usage:
  $ compotest <cool-component>
