@@ -43,6 +43,7 @@ describe('MyTestingComponent', () => {
     const expected = {
       filePath: 'spec/components/my-testing-component-spec.js',
       template: `import React from 'react';
+
 import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 import expectJSX from 'expect-jsx';
@@ -86,17 +87,16 @@ expect.extend(expectJSX);
 import MyTestingComponent from '../../cool/folder/my-testing-component';
 
 describe('MyTestingComponent', () => {
+  it('new component is amazing', () => {
+    const renderer = TestUtils.createRenderer();
 
-    it('new component is amazing', () => {
-        const renderer = TestUtils.createRenderer();
+    renderer.render(<MyTestingComponent /* ADD PROPS HERE */ />);
 
-        renderer.render(<MyTestingComponent /* ADD PROPS HERE */ />);
+    const actual = renderer.getRenderOutput();
+    const expected = <h1>Wow, this is amazing!</h1>;
 
-        const actual = renderer.getRenderOutput();
-        const expected = <h1>Wow, this is amazing!</h1>;
-
-        expect(actual).toIncludeJSX(expected);
-    });
+    expect(actual).toIncludeJSX(expected);
+  });
 });`,
       type: 'Test'
     };

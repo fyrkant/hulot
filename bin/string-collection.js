@@ -11,14 +11,14 @@ Usage:
 
 `;
 const validPropTypes = [
-    'array',
-    'bool',
-    'func',
-    'number',
-    'object',
-    'string',
-    'node',
-    'element'
+  'array',
+  'bool',
+  'func',
+  'number',
+  'object',
+  'string',
+  'node',
+  'element'
 ];
 
 const componentTemplate = `import React, {Component} from 'react';
@@ -57,8 +57,8 @@ describe('::TestComponentName::', () => {
 });`;
 
 module.exports = {
-    helpText,
-    componentTemplate,
-    testTemplate,
-    validPropTypes
+  helpText,
+  componentTemplate,
+  testTemplate,
+  validPropTypes
 };
