@@ -1,54 +1,50 @@
 ---
 layout: default
 ---
+## A React component and test generator.
 
-## A Jekyll template for publishing single-page websites and articles that are incredibly readable and fully responsive
+### Usage:
 
-### Nice, clean, reading!
+* `$ hulot <COMPONENT-NAME>`
+    => Generates a component called CoolComponent and a matching test file.
+* `$ hulot -c <COMPONENT-NAME>`
+    => Generates component only, no test. (Why aren't you testing?!)
+* `$ hulot -t <COMPONENT-NAME>`
+    => Generates test only, no component. (Yep, get testing!)
 
-Good clean read is set up with readability first in mind. Whatever you want to communicate here can be read easily, and without distraction. Of course, it's fully responsive, which means people can read it naturally on any phone, or tablet. Write it in markdown in <code>index.md</code> and get a beautifully published piece.
+### Adding proptypes:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+If you want to add prop validation via Reacts proptypes you can do so *"rails style"*:  
+`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>`  
+And if you want the prop to be required you just add `:req` at the end:  
+`$ hulot <COMPONENT-NAME> <PROPNAME>:<PROPTYPE>:req`  
+The proptypes supported by hulot are: `array`, `bool`, `func`, `number`, `object`, `string`, `node` and `element`.
 
-> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+For more on proptypes, see the [official documentation][1].
 
-### With footnotes too!
+### Example:
+If we wanted to create a component (and the matching test file) called `Greeter` that takes a **required** `string` name-prop and an **optional** `boolean` isVIP-prop we would write it like this:  
+`$ hulot greeter name:string:req isVIP:bool`
 
-Back up your stuff with solid, clean citations. Footnotes can be written in markdown and appear like this.[^1] Use as many as you like.[^2]
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+### Details
 
-### Add social sharing buttons
+The goal of `hulot` is to make it as easy as possible to get started writing and testing React components.
 
-Simply add the following line anywhere in you markdown:
+It takes the name of the wanted component component using dash-case - so for example, if you want a `HelloWorld` component you enter `hello-world` - and `hulot` spits out a component with that name, `hello-world.js` and a test file with the name plus `-spec.js` added to the end (so `hello-world-spec.js` in our case).
 
-<pre><code>{% raw  %}
-{% include sharing.html %}
-{% endraw %}
-</code></pre>
+`hulot` was created for a very specific project and is therefore **very opinionated and not at all configurable**. It assumes that you are using mocha, expect and expect-jsx to test your components and that your files are layed out like this:
+```
++---src
+|   +---components
+|   |   hello-world.js
+|   |   // ALL OF YOUR COMPONENTS
++---spec
+|   +---components
+|   |   hello-world-spec.js
+|   |   //ALL OF YOUR TESTS
+```
 
-and get a nice responsive sharing ribbon.
+The possibility to be able to configure component- and test paths (and maybe even provide your own templates for how you want your components and tests to look) through a dot-file config or in the package.json might be added in the future. It's on my todo list.
 
-{% include sharing.html %}
-
-Add this at the bottom, or the top, or between every other paragraph is you're desprate for social validation.
-
-Just remember to customize the buttons to fit your url in the <code>_includes/sharing.html</code> file. These buttons are made available and customizable by the good folks at kni-labs. See the documentation at [https://github.com/kni-labs/rrssb](https://github.com/kni-labs/rrssb) for more information.
-
-### Add images to make your point
-
-Images play nicely with this as well. Add diagrams or charts to make your point, and the template will fit them in appropriately.
-
-<img src="http://githube.com/adueck/good-clean-read/images/hello.svg" alt="hello">
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Thanks to [Shu Uesengi](https://github.com/chibicode) for inspiring and providing the base for this template with his excellent work, [solo](https://github.com/chibicode).
-
-<hr>
-
-##### Footnotes:
-
-[^1]: This is a footnote. Click to return.
-
-[^2]: Here is another.
+[1]: https://facebook.github.io/react/docs/reusable-components.html#prop-validation

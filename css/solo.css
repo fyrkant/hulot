@@ -64,10 +64,10 @@ h1 a {
 }
 
 h2 {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 1.75rem;
   font-weight: 500;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   color: #555;
   text-align: right;
   margin-right: -4rem;
@@ -77,7 +77,7 @@ h2 {
   h2 {
     margin-top: 2.5rem;
     font-size: 1.75rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
     margin-right: -4rem;
   }
 }
@@ -266,4 +266,92 @@ pre > code {
 .sharing-buttons {
 	width: 100%;
 }
+
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+}
+
+#hulot {
+  display: block;
+  margin: 0 auto;
+  max-width: 450px;
+  animation: spark 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+#glow-path {
+  animation: glow 5s cubic-bezier(0.14, 0.1, 0, 0.74) infinite;
+}
+
+#smoke1 {
+  fill-opacity: 0;
+  animation: 5s cubic-bezier(0.14, 0.1, 0, 0.74) 0s infinite alternate smoke;
+}
+#smoke2 {
+  fill-opacity: 0;
+  animation: 4s cubic-bezier(0.14, 0.1, 0, 0.74) 1s infinite alternate smoke;
+}
+#smoke3 {
+  fill-opacity: 0;
+  animation: 5s cubic-bezier(0.14, 0.1, 0, 0.74) 2s infinite alternate smoke;
+}
+#smoke4 {
+  fill-opacity: 0;
+  animation: 5s cubic-bezier(0.14, 0.1, 0, 0.74) 3s infinite alternate smoke;
+}
+#smoke5 {
+  fill-opacity: 0;
+  animation: 5s cubic-bezier(0.14, 0.1, 0, 0.74) 4s infinite alternate smoke;
+}
+@keyframe glide {
+  from {
+    transform: translate(-500px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes spark {
+  0% {
+    transform: translateY(-500px) rotate(280deg);
+  }
+  80% {
+     transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    fill: #E5AD00;
+  }
+  25% {
+    fill: #E5734E;
+  }
+  50% {
+    fill: #E51E00;
+  }
+  75% {
+    fill: #E59300;
+  }
+  100% {
+    fill: #E5C900;
+  }
+}
+
+@keyframes smoke {
+  0% {
+    fill-opacity: 0;
+  }
+  50% {
+    fill-opacity: .7;
+  }
+  90% {fill-opacity: 0;}
+  100% {
+    fill-opacity: 0;
+  }
 }
