@@ -3,6 +3,8 @@ layout: default
 ---
 ## A React component and test generator.
 
+Link to: [GitHub](https://github.com/mw222rs/hulot), [npm](https://www.npmjs.com/package/hulot)
+
 ### Usage:
 
 * `$ hulot <COMPONENT-NAME>`
@@ -35,14 +37,14 @@ It takes the name of the wanted component component using dash-case - so for exa
 
 `hulot` was created for a very specific project and is therefore **very opinionated and not at all configurable**. It assumes that you are using mocha, expect and expect-jsx to test your components and that your files are layed out like this:
 ```
-+---src
-|   +---components
-|   |   hello-world.js
-|   |   // ALL OF YOUR COMPONENTS
-+---spec
-|   +---components
-|   |   hello-world-spec.js
-|   |   //ALL OF YOUR TESTS
++---src  
+|   +---components  
+|   |   hello-world.js  
+|   |   // ALL OF YOUR COMPONENTS  
++---spec  
+|   +---components  
+|   |   hello-world-spec.js  
+|   |   //ALL OF YOUR TESTS  
 ```
 
 The possibility to be able to configure component- and test paths (and maybe even provide your own templates for how you want your components and tests to look) through a dot-file config or in the package.json might be added in the future. It's on my todo list.
