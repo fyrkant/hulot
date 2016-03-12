@@ -7,6 +7,6 @@ const controller = require('./controller');
 
 const settings = require(process.env.PWD + '/package')['hulot'];
 
-console.log(settings);
+// console.log(settings);
 
 controller(process.argv, {inputParser, componentGenerator, testGenerator, fileSaver}, settings);

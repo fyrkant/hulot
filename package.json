@@ -28,7 +28,7 @@
   "homepage": "https://github.com/mw222rs/hulot#readme",
   "devDependencies": {
     "coveralls": "^2.11.6",
-    "expect": "^1.13.4",
+    "expect": "^1.15.2",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.2",
     "mock-fs": "^3.7.0"

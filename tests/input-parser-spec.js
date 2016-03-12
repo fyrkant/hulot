@@ -187,7 +187,7 @@ describe('input parser function', () => {
 
     expect(actual).toEqual(expected);
   });
-  it('returns correct props even if -t flag is set', () => {
+  it('returns correct props even if -c flag is set', () => {
     const fileName = 'my-testing-component';
     const actual = inputParser([
       fileName,
@@ -225,12 +225,4 @@ describe('input parser function', () => {
 
     expect(actual).toEqual(expected);
   });
-
-  it('should throw an exception if no filename but props are sent in', () => {
-    expect(inputParser)
-            .withArgs(['myProp:func'])
-            .toThrow(/No valid file name entered/);
-  });
-
-
 });
